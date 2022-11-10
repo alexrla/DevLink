@@ -1,0 +1,57 @@
+.error {
+    align-items: center;
+
+    color: #FFF;
+
+    display: flex;
+
+    flex-direction: column;
+
+    min-height: 100vh;
+
+    justify-content: center;
+
+    width: 100%;
+}
+
+.error .emoji {
+    font-size: 7rem;
+}
+
+.error h1, .error p {
+    margin-top: 12px;
+}
+
+.error .link {
+    margin-top: 20px;
+}
+
+.error h1 {
+    font-size: 2.5rem;
+}
+
+.error p {
+    font-size: 1.5rem;
+
+    font-style: italic;
+}
+
+.error .link {
+    background-color: #2B58DE;
+
+    border-radius: 5px;
+
+    color: #FFF;
+
+    font-size: 1.2rem;
+
+    padding: 10px 12px;
+
+    transition: background-color, transform .4s;
+}
+
+.error .link:hover {
+    background-color: #1D44B8;
+    
+    transform: scale(1.05);
+}
