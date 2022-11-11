@@ -1,0 +1,31 @@
+.header {
+    background-color: #2D3E50;
+
+    padding: 20px 0;
+
+    width: 100%;
+}
+
+.menu .menu_item {
+    border: 2px solid #2D3E50;
+
+    border-radius: 5px;
+
+    color: #FFF;
+
+    margin-left: 20px;
+
+    padding: 8px 10px;
+
+    transition: 0.5s;
+}
+
+.menu_item span {
+    margin-left: 8px;
+}
+
+.menu .menu_item:hover {
+    background-color: #212C3D;
+
+    border: 2px solid #FFF;
+}

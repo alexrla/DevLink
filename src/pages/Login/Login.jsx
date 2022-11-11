@@ -8,6 +8,7 @@ import { auth } from "../../services/firebaseConnection";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 import Logo from "../../components/Logo/Logo";
+import Input from "../../components/Input/Input";
 
 import styles from "./Login.module.css";
 
@@ -29,9 +30,9 @@ const Login = () => {
         }
 
         signInWithEmailAndPassword(auth, userDataLogin.email, userDataLogin.password)
-        .then((data) => {
+        .then(() => {
             toast.success("Usuário logado com sucesso!");
-            console.log(data);
+            // console.log(data);
             navigate("/admin", { replace: true });
         })
         .catch((error) => {
@@ -46,15 +47,17 @@ const Login = () => {
             <Logo />
 
             <form className={styles.form} onSubmit={handleLogin}>
-                <input 
+                <Input
                     type="email"
                     placeholder="Digite o seu e-mail"
+                    value={userDataLogin.email}
                     onChange={(event) => setUserDataLogin({...userDataLogin, email: event.target.value})} 
                 />
-                <input 
+                <Input
                     type="password"
                     placeholder="Digite a sua senha"
                     autoComplete="on"
+                    value={userDataLogin.password}
                     onChange={(event) => setUserDataLogin({...userDataLogin, password: event.target.value})}   
                 />
                 <button type="submit">Entrar</button>

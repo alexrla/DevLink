@@ -8,6 +8,7 @@ import { auth } from "../../services/firebaseConnection";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 import Logo from "../../components/Logo/Logo";
+import Input from "../../components/Input/Input";
 
 import styles from "./Register.module.css";
 
@@ -38,9 +39,9 @@ const Register = () => {
         }
 
         createUserWithEmailAndPassword(auth, userDataRegister.email, userDataRegister.password)
-        .then((data) => {
+        .then(() => {
             toast.success("Usuário criado com sucesso!");
-            console.log(data);
+            // console.log(data);
             navigate("/sign-in", { replace: true });
         })
         .catch((error) => {
@@ -55,18 +56,18 @@ const Register = () => {
             <Logo />
 
             <form className={styles.form} onSubmit={handleRegister}>
-                <input 
+                <Input 
                     type="email"
                     placeholder="Digite o seu e-mail"
                     onChange={(event) => setUserDataRegister({...userDataRegister, email: event.target.value})}   
                 />
-                <input 
+                <Input 
                     type="password"
                     placeholder="Digite a sua senha"
                     autoComplete="on"
                     onChange={(event) => setUserDataRegister({...userDataRegister, password: event.target.value})}    
                 />
-                <input 
+                <Input
                     type="password"
                     placeholder="Confirme a sua senha"
                     autoComplete="on"

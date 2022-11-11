@@ -1,0 +1,210 @@
+.admin_container {
+    align-items: center;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.field {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.field label {
+    color: #FFF;
+}
+
+.form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+    padding: 0 5px;
+
+    margin-bottom: 40px;
+
+    max-width: 600px;
+
+    width: 100%;
+}
+
+.colors {
+    display: flex;
+
+    gap: 20px;
+
+    margin-top: 10px;
+}
+
+.colors .field {
+    align-items: center;
+
+    flex-direction: row;
+}
+
+.icon {
+    margin-top: 10px;
+
+    text-align: center;
+}
+
+.icon p {
+    margin-bottom: 25px;
+}
+
+.icons_container {
+    align-items: center;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 20px;
+
+    justify-content: center;
+}
+
+.icon .field {
+    flex-direction: row;
+
+    width: 25%;
+}
+
+.form button {
+    background-color: #577AE4;
+
+    border: 0;
+
+    border-radius: 5px;
+
+    color: #FFF;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    margin-top: 20px;
+
+    padding: 8px;
+
+    transition: .5s;
+}
+
+.form button:hover {
+    background-color: #214CCE;
+}
+
+.title {
+    color: #FFF;
+}
+
+.link {
+    align-items: center;
+
+    animation-duration: 0.5s;
+
+    animation-name: animate-pop;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin: 15px 0 22px;
+
+    max-width: 600px;
+
+    padding: 10px;
+
+    width: 90%;
+}
+
+.btn_delete {
+    border: none;
+
+    background-color: transparent;
+
+    color: #FFF;
+
+    font-size: 18px;
+
+    padding: 4px 8px;
+}
+
+@keyframes animate-pop {
+    0% {
+        opacity: 0;
+        transform: scale(0.7, 0.7);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform: scale(1, 1);
+    }
+}
+
+.preview {
+    align-items: center;
+
+    border: 2px dashed #FFF;
+
+    display: flex;
+
+    flex-direction: column;
+
+    margin-top: 10px;
+
+    padding: 20px 0;
+    
+    width: 100%;
+}
+
+.preview span {
+    color: #FFF;
+}
+
+.preview_link {
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    margin-top: 15px;
+
+    padding: 12px 0;
+
+    width: 90%;
+}
+
+.preview_link a {
+    text-align: center;
+}
+
+.preview_link_title {
+    font-size: 18px;
+
+    font-weight: bold;
+
+    position: relative;
+}
+
+.preview_link_title i {
+    bottom: -2px;
+
+    font-size: 20px;
+
+    position: absolute;
+
+    right: 20px;
+}

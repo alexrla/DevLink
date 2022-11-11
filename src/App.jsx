@@ -8,6 +8,8 @@ import Admin from './pages/Admin/Admin';
 import Profile from './pages/Profile/Profile';
 import Error from "./pages/Error/Error";
 
+import Private from "./routes/Private";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,7 +25,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/admin",
-    element: <Admin />
+    element: <Private><Admin /></Private>
   },
   {
     path: "/my-links",

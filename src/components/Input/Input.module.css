@@ -1,0 +1,13 @@
+.form_input {
+    border: 0;
+
+    border-radius: 5px;
+
+    font-size: 18px;
+
+    height: 46px;
+
+    padding-left: 10px;
+
+    outline: 0;
+}
