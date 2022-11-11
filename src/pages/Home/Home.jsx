@@ -7,7 +7,18 @@ import styles from "./Home.module.css";
 const Home = () => {
     return(
         <div className={styles.home_container}>
-            <Logo />
+            <nav className={styles.menu}>
+                <Logo />
+                <ul>
+                    <li>
+                        <Link to="/sign-up" className={styles.nav_link}>Criar conta</Link>
+                    </li>
+                    <li>
+                        <Link to="/sign-in" className={styles.nav_link}>Acessar conta</Link>
+                    </li>
+                </ul>
+            </nav>
+
             <span>Crie seus links 👇</span>
 
             <main className={styles.link_container}>
@@ -148,7 +159,6 @@ const Home = () => {
                     </a>
                 </section>
             </main>
-            <Link className={styles.create} to="/">Criar link</Link>
         </div>
     )
 };
