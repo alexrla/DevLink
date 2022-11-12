@@ -1,0 +1,51 @@
+.config_container {
+    align-items: center;
+
+    color: #FFF;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+.form {
+    max-width: 600px;
+
+    width: 100%;
+}
+
+.field {
+    display: flex;
+
+    flex-direction: column;
+
+    margin-bottom: 25px;
+}
+
+.field label {
+    padding-bottom: 10px;
+}
+
+.form button {
+    background-color: #577AE4;
+
+    border: 0;
+
+    border-radius: 5px;
+
+    color: #FFF;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    padding: 8px;
+
+    transition: .5s;
+
+    width: 100%;
+}
+
+.form button:hover {
+    background-color: #214CCE;
+}

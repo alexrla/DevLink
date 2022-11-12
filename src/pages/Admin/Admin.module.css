@@ -121,13 +121,21 @@
 
     justify-content: space-between;
 
-    margin: 15px 0 22px;
+    margin-top: 15px;
 
     max-width: 600px;
 
     padding: 10px;
 
     width: 90%;
+}
+
+.link:last-child {
+    margin-bottom: 25px;
+}
+
+.link p {
+    font-weight: bold;
 }
 
 .btn_delete {

@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 
 import styles from "./Header.module.css";
 
-const Header = () => {
+const Header = ({ id }) => {
 
     async function handleLogout() {
 
@@ -27,7 +27,8 @@ const Header = () => {
                     <span>Sair</span>
                 </Link>
                 <Link to="/admin" className={styles.menu_item}>Criar link</Link>
-                <Link to="/my-links" className={styles.menu_item}>Meus links</Link>
+                <Link to={`/my-links/${id}`} className={styles.menu_item}>Meus links</Link>
+                <Link to="/manage-account" className={styles.menu_item}>Gerenciar conta</Link>
             </nav>
         </header>
     )

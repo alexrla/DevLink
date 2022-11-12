@@ -6,6 +6,7 @@ import Register from './pages/Register/Register';
 import Login from "./pages/Login/Login";
 import Admin from './pages/Admin/Admin';
 import Profile from './pages/Profile/Profile';
+import Config from "./pages/Config/Config";
 import Error from "./pages/Error/Error";
 
 import Private from "./routes/Private";
@@ -28,7 +29,11 @@ const router = createBrowserRouter([
     element: <Private><Admin /></Private>
   },
   {
-    path: "/my-links",
+    path: "/manage-account",
+    element: <Private><Config /></Private>
+  },
+  {
+    path: "/my-links/:id",
     element: <Profile />
   },
   {

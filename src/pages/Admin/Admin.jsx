@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { toast } from "react-toastify";
 
@@ -9,6 +9,7 @@ import {
     onSnapshot,
     query,
     orderBy,
+    doc,
     deleteDoc
 } from "firebase/firestore";
 
@@ -20,6 +21,34 @@ import styles from "./Admin.module.css";
 
 const Admin = () => {
     const [ dataLink, setDataLink ] = useState({ title: "", url: "", backgroundColor: "#FFFFFF", color: "#000000", icon: "bi bi-link"});
+    const [ links, setLinks ] = useState([]);
+    const [ id, setId ] = useState("");
+
+    useEffect(() => {
+
+        const id = JSON.parse(localStorage.getItem("@detailsUser")).uid;
+        setId(id);
+
+        const linkRef = collection(db, "links");
+        const queryRef = query(linkRef, orderBy("created", "asc"));
+
+        onSnapshot(queryRef, (snapshot) => {
+            let list = [];
+
+            snapshot.forEach((doc) => {
+                list.push({
+                    id: doc.id,
+                    title: doc.data().title,
+                    url: doc.data().url,
+                    bgColor: doc.data().bgColor,
+                    color: doc.data().color,
+                })
+            });
+
+            setLinks(list);
+        });
+
+    }, []);
 
     async function handleCreateLink(event) {
         event.preventDefault();
@@ -52,14 +81,22 @@ const Admin = () => {
             toast.error("Erro ao criar o link!");
 
             console.log(error);
-            
+
         });
 
+    }
+
+    async function handleDeleteLink(id) {
+        const docRef = doc(db, "links", id);
+
+        await deleteDoc(docRef);
+
+        toast.success("Link excluído com sucesso!");
     }
     
     return(
         <div className={styles.admin_container}>
-            <Header />
+            <Header id={id} />
             
             <Logo />
 
@@ -260,17 +297,22 @@ const Admin = () => {
 
             <h2 className={styles.title}>Meus links</h2>
 
-            <article 
-                className={styles.link}
-                style={{backgroundColor: "#FFF"}}
-            >
-                <p style={{color: "#000"}}>Título do link</p>
-                <div>
-                    <button className={styles.btn_delete}>
-                        <i className="bi bi-trash" style={{color: "#000"}}></i>
-                    </button>
-                </div>
-            </article>
+            {
+                links.map((item, index) => (
+                    <article 
+                        className={styles.link}
+                        style={{backgroundColor: item.bgColor}}
+                        key={index}
+                    >
+                        <p style={{color: item.color}}>{item.title}</p>
+                        <div>
+                            <button className={styles.btn_delete} onClick={() => handleDeleteLink(item.id)}>
+                                <i className="bi bi-trash" style={{color: item.color}}></i>
+                            </button>
+                        </div>
+                    </article>
+                ))
+            }
         </div>
     )
 };
